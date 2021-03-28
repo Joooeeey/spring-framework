@@ -59,11 +59,14 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 
 
 	/**
+	 * 构造器初始化
 	 * Create a new AnnotationConfigApplicationContext that needs to be populated
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
 	 */
 	public AnnotationConfigApplicationContext() {
+		//创建一个bean definition 读取器
 		this.reader = new AnnotatedBeanDefinitionReader(this);
+		//创建一个bean definition 扫描器
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 

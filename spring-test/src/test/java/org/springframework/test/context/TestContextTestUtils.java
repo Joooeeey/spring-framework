@@ -16,6 +16,10 @@
 
 package org.springframework.test.context;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.bean.TestBean;
+import org.springframework.test.bean.TestConfiguration;
 import org.springframework.test.context.cache.ContextCache;
 import org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate;
 import org.springframework.test.context.support.DefaultBootstrapContext;
@@ -38,6 +42,12 @@ public abstract class TestContextTestUtils {
 		BootstrapContext bootstrapContext = new DefaultBootstrapContext(testClass, cacheAwareContextLoaderDelegate);
 		TestContextBootstrapper testContextBootstrapper = BootstrapUtils.resolveTestContextBootstrapper(bootstrapContext);
 		return testContextBootstrapper.buildTestContext();
+	}
+
+	public static void main(String[] args) {
+		ApplicationContext context = new AnnotationConfigApplicationContext(TestConfiguration.class);
+		System.out.println(context.getBean(TestBean.class).toString());
+
 	}
 
 }
