@@ -38,5 +38,4 @@ rootProject.children.each {project ->
 }
 include 'spring-test'
 include 'spring-mine'
-include 'spring-debug'
 
